@@ -33,6 +33,22 @@ namespace CSD.TodoApplicationRestApp.Factory
         public TodoInfo RandomTodo => m_todos[m_random.Next(m_todos.Count)];
 
 
+        public IEnumerable<TodoInfo> GetByCount(int number)
+        {
+            var list = new List<TodoInfo>();
+
+            if (number <= m_todos.Count)
+            {
+                for (int i = 0; i < number; i++)
+                {
+                    list.Add(m_todos[i]);
+                }
+            }
+            
+
+            return list;
+        }
+
         public IEnumerable<TodoInfo> FindTodosByTitleContains(string title)
         {
             var list = new List<TodoInfo>();

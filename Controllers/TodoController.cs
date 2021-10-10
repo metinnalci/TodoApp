@@ -29,6 +29,16 @@ namespace _001_TodoApplicationRestApp.Controllers
             return todoRF.RandomTodo;
         }
 
+
+        [HttpGet("todos")]
+        public IEnumerable<TodoInfo> GetByCount(int number)
+        {
+            var t = new TodoRandomFactory();
+
+            return t.GetByCount(number);
+        }
+
+
         [HttpGet("deneme")]
         public IEnumerable<TodoInfo> GetRandoms(string count)
         {
