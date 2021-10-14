@@ -1,3 +1,4 @@
+using _001_TodoApplicationRestApp.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,9 @@ namespace _001_TodoApplicationRestApp
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "_001_TodoApplicationRestApp", Version = "v1" });
             });
+
+            services.AddSingleton<ITodoRepository, TodoRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
